@@ -2,7 +2,7 @@ from pathlib import Path
 
 def total_salary(path):
     try:
-        with open(path.name,'r',encoding='utf-8',) as fh:
+        with open(path,'r',encoding='utf-8',) as fh:
            
             total=0
             person_salarys=fh.readlines()
@@ -16,5 +16,4 @@ def total_salary(path):
         
     except FileNotFoundError:
         print(f'Файл не знайдено')
-
 

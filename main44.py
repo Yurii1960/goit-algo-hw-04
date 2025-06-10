@@ -3,6 +3,7 @@ def parse_input(user_input):
     cmd = cmd.strip().lower()
     return cmd, *args
 
+
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
@@ -15,6 +16,7 @@ def change_contact(args, contacts):
         return "Contact changed."
     else:
         return f' {name} have not a phone'
+    
         
 def show_phone(args, contacts):
     name = args[0]
@@ -28,8 +30,10 @@ def show_all(contacts):
         return print(f'No phones')
     else:
         
+        
         for key in contacts.keys():
             print( f'phone {key} {contacts[key]}')
+            
     
 def main():
     contacts = {}
