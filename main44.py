@@ -5,18 +5,26 @@ def parse_input(user_input):
 
 
 def add_contact(args, contacts):
-    name, phone = args
-    contacts[name] = phone
-    return "Contact added."
-def change_contact(args, contacts):
-    name, phone = args
-    if name in contacts.keys():
-
+    try:
+        name, phone = args
         contacts[name] = phone
-        return "Contact changed."
-    else:
-        return f' {name} have not a phone'
+        return "Contact added."
+    except ValueError:
+        return 'invalid command'
     
+
+def change_contact(args, contacts):
+    try:
+        name, phone = args
+        if name in contacts.keys():
+
+            contacts[name] = phone
+            return "Contact changed."
+        else:
+            return f' {name} have not a phone'
+    except ValueError:
+        return 'invalid command'
+
         
 def show_phone(args, contacts):
     name = args[0]
@@ -27,13 +35,11 @@ def show_phone(args, contacts):
 def show_all(contacts):
     if contacts=={}:
                 
-        return print(f'No phones')
+        return 'No phones'
     else:
         
-        
-        for key in contacts.keys():
-            print( f'phone {key} {contacts[key]}')
-            
+        return contacts
+    
     
 def main():
     contacts = {}
@@ -55,7 +61,7 @@ def main():
         elif command == 'phone':
             print(show_phone(args,contacts))
         elif command == 'all':
-            show_all(contacts)
+            print(show_all(contacts))
             
         else:
             print("Invalid command.")
