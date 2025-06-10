@@ -3,7 +3,7 @@
 def get_cats_info(path):
     
     try:
-        with open(path.name,'r',encoding='utf-8',) as fh:
+        with open(path,'r',encoding='utf-8',) as fh:
            
             cats_info=[]
             info_one_cat={}
